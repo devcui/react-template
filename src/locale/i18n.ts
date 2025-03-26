@@ -6,23 +6,26 @@ import enUS from '@/assets/langs/en-US.json';
 import jaJP from '@/assets/langs/ja-JP.json';
 import { getLang } from '@/utils/lang';
 
-const resources = {
-  zhCN: {
-    translation: zhCN
-  },
-  zhHK: {
-    translation: zhHK
-  },
-  enUS: {
-    translation: enUS
-  },
-  jaJP: {
-    translation: jaJP
+export default {
+  ...i18n,
+  loadLangs: () => {
+    const resources = {
+      zhCN: {
+        translation: zhCN
+      },
+      zhHK: {
+        translation: zhHK
+      },
+      enUS: {
+        translation: enUS
+      },
+      jaJP: {
+        translation: jaJP
+      }
+    };
+    const defaultLang = getLang();
+    i18n
+      .use(initReactI18next)
+      .init({ resources, lng: getLang() || defaultLang, interpolation: { escapeValue: false } });
   }
 };
-const defaultLang = getLang();
-
-const _i18n = i18n.use(initReactI18next);
-_i18n.init({ resources, lng: getLang() || defaultLang, interpolation: { escapeValue: false } });
-
-export default i18n;

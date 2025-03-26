@@ -5,10 +5,11 @@ import { ConfigProvider } from 'antd';
 import App from './App';
 import '@/assets/css/index.css';
 import '@ant-design/v5-patch-for-react-19';
-import '@/locale/i18n';
+import i18n from '@/locale/i18n';
 import locale from '@/locale/locale';
 
 locale.setDayjsLocale();
+i18n.loadLangs();
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
