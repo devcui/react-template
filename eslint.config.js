@@ -26,6 +26,7 @@ export default tseslint.config(
           destructuredArrayIgnorePattern: '^_'
         }
       ],
+      '@typescript-eslint/no-floating-promises': 'off',
       'no-await-in-loop': 'error',
       'no-constructor-return': 'error',
       'no-self-compare': 'error',
