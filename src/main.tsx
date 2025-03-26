@@ -5,11 +5,14 @@ import { ConfigProvider } from 'antd';
 import App from './App';
 import '@/assets/css/index.css';
 import '@ant-design/v5-patch-for-react-19';
+import locale from '@/locale/locale';
+
+locale.setDayjsLocale();
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <HashRouter>
-      <ConfigProvider>
+      <ConfigProvider locale={locale.antdLocale}>
         <App />
       </ConfigProvider>
     </HashRouter>

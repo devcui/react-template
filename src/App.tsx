@@ -1,5 +1,5 @@
 import { ConfigProvider } from 'antd';
-import Router from './Router';
+import { Router } from './Router';
 
 function App() {
   return (

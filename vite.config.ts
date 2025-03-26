@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite';
 import path from 'path';
 import react from '@vitejs/plugin-react-swc';
-import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig(({ mode }) => {
   return {
@@ -22,11 +21,11 @@ export default defineConfig(({ mode }) => {
     esbuild: {
       drop: mode === 'prod' ? ['console', 'debugger'] : []
     },
-    plugins: [react(), tailwindcss()],
+    plugins: [react()],
     server: {
       host: '0.0.0.0',
       port: 3000,
-      open: false,
+      open: true,
       proxy: {
         '/api': {
           target: '',

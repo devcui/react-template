@@ -2,12 +2,12 @@ import { Spin } from 'antd';
 import { lazy, ReactNode, Suspense } from 'react';
 import { Navigate, Route, RouteObject, Routes, useLocation } from 'react-router-dom';
 import Blank from './layout/blank';
-import { useAuthStore } from './store/autoStore';
+import { getToken } from './utils/token';
 
 const Home = lazy(() => import('@/pages/home'));
 const Login = lazy(() => import('@/pages/login'));
 
-export default () => {
+export const Router = () => {
   const routes: RouteObject[] = [
     {
       path: '/',
@@ -32,7 +32,7 @@ const lazyLoad = (conponent: ReactNode): ReactNode => {
 const handleRedirect = (item: RouteObject) => {
   const location = useLocation();
   const { pathname } = location;
-  const { token } = useAuthStore();
+  const token = getToken();
   if (pathname === '/') {
     return <Navigate to="/home" />;
   }

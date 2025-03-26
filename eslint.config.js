@@ -26,7 +26,6 @@ export default tseslint.config(
           destructuredArrayIgnorePattern: '^_'
         }
       ],
-
       'no-await-in-loop': 'error',
       'no-constructor-return': 'error',
       'no-self-compare': 'error',
@@ -39,6 +38,15 @@ export default tseslint.config(
     extends: [tseslint.configs.disableTypeChecked]
   },
   {
-    ignores: ['node_modules', 'build', 'assets', '**/dist', '.prettierrc.js', 'output.js', 'vite-env.d.ts']
+    ignores: [
+      'node_modules',
+      'build',
+      'assets',
+      '**/dist',
+      '.prettierrc.js',
+      'types/**',
+      'output.js',
+      'tailwind.config.js'
+    ]
   }
 );
